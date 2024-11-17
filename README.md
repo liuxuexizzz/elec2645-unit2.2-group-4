@@ -30,6 +30,8 @@ Functions should be preceded by function functions and input/output comments.
 Function statements should have appropriate Spaces and indents.
 
 e.g.
+int example_sum(int a, int b);  // example.h
+
 /* 
 Function: calculate sum.
 input:    int       a, b
