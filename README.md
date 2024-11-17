@@ -29,6 +29,7 @@ b. Function format:
 Functions should be preceded by function functions and input/output comments.
 Function statements should have appropriate Spaces and indents.
 e.g.
+
 /* 
 Function: calculate sum.
 input:    int       a, b
