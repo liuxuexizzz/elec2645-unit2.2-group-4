@@ -19,7 +19,7 @@ Header files corresponding to various functions(funtion1.h)
 
 a. function declaration:
 The function declaration should be placed in the corresponding header file.
-The annotation of the function declaration should include the function location.
+The annotation of the function declaration should include what functions do.
 There should be three empty lines between functions and functions.
 All printed content must be wrapped, and all input buffers must be cleared after input ends.
 e.g.
