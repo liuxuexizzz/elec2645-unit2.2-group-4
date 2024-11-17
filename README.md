@@ -32,9 +32,13 @@ e.g.
 
 /* 
 Function: calculate sum.
+
 input:    int       a, b
+
 output:   int       S          // a + b
+
 */
+
 int example_sum(int a, int b)
 {
     int S = 0;
