@@ -23,7 +23,7 @@ The annotation of the function declaration should include the function location.
 There should be three empty lines between functions and functions.
 All printed content must be wrapped, and all input buffers must be cleared after input ends.
 e.g.
-void example(int a); // Example.cpp line 46
+void example(int a);            // Example.cpp line 46
 
 
 b. Function format:
@@ -36,7 +36,7 @@ int example_sum(int a, int b);  // example.h
 /* 
 Function: calculate sum.
 input:    int       a, b
-output:   int       S          // a + b
+output:   int       S           // a + b
 */
 int example_sum(int a, int b)
 {
