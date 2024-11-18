@@ -86,7 +86,7 @@ int get_user_input() {
 
 /* 
 Function:       select_menu_item
-Input:          int       input       // User's menu selection
+Input:          int input             // User's menu selection
 Output:         None
 Description:    Calls the appropriate function based on the user's menu selection.
 */
