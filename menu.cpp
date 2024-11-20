@@ -96,7 +96,7 @@ void select_menu_item(int input) {
             menu_item_1();
             break;
         case 2:
-            menu_item_2();
+            menu_item_2();             //Ohms Calculator
             break;
         case 3:
             menu_item_3();
