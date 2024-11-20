@@ -53,7 +53,7 @@ int get_user_input() {
     int input;
     string input_string;
     bool valid_input = false;
-    int menu_items = 5;       // 菜单项数上限 5（添加功能徐需修改）
+    int menu_items = 6;       // 菜单项数上限 5（添加功能徐需修改）
 
     do {
         cout << "\nSelect item: ";
