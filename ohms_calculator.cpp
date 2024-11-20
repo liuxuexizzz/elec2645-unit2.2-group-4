@@ -1,6 +1,6 @@
 #include "ohms_calculator.h"
 #include "Basic_op.h"
-#include "input_functions.h"
+#include "Get_user_input.h"
 #include <iostream>
 using namespace std;
 
