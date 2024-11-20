@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "ohms_calculator.h"
 
 using namespace std;
 
