@@ -1,5 +1,6 @@
 #include "menu.h"
 #include "ohms_calculator.h"
+#include "resistor_decoder.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ void print_main_menu()
     cout << "|\t1. Menu item 1\t\t|\n";
     cout << "|\t2. ohms_calculator\t|\n";
     cout << "|\t3. Menu item 3\t\t|\n";
-    cout << "|\t4. Menu item 4\t\t|\n";
+    cout << "|\t4. resistor_decoder\t|\n";
     cout << "|\t5. Menu item 5\t\t|\n";
     cout << "|\t6. Exit\t\t\t|\n";
     cout << "|\t\t\t\t|\n";
@@ -208,9 +209,8 @@ Description:    Executes the functionality for menu item 4 and returns to the ma
 void menu_item_4()
 {
     // 无输入，无返回值。执行菜单项 4 的操作，并返回主菜单。
-    cout << "\n>> Menu 4\n";
-    cout << "function performance \r\n";
-    cout << "output\r\n";
+    cout << "\n>> resistor_decoder\n";
+    decodeResistorColor();
     go_back_to_main();
 }
 
