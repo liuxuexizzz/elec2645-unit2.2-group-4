@@ -41,8 +41,22 @@ int getIntInput() {
 // Function to get a string input from the user
 std::string getStringInput() {
     std::string input;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear any leftover input
+
+    // Clear the buffer if it's already in an error state
+    if (std::cin.fail()) {
+        std::cin.clear(); // Clear the error flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Ignore invalid input
+    }
+
+    std::cout << "Please enter a string: ";
     std::getline(std::cin, input); // Read the entire line
+
+    // Validate empty input
+    if (input.empty()) {
+        std::cout << "Input cannot be empty. Please try again.\n";
+        return getStringInput(); // Recursively call until valid input
+    }
+
     return input;
 }
 
