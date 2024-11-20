@@ -1,5 +1,5 @@
-#ifndef INPUT_FUNCTIONS_H
-#define INPUT_FUNCTIONS_H
+#ifndef GET_USER_INPUT_H
+#define GET_USER_INPUT_H
 
 #include <string>
 
