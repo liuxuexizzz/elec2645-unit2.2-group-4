@@ -15,7 +15,7 @@ void print_main_menu()
     cout << "\n----------- Main menu -----------\n";
     cout << "|\t\t\t\t|\n";
     cout << "|\t1. Menu item 1\t\t|\n";
-    cout << "|\t2. Menu item 2\t\t|\n";
+    cout << "|\t2. ohms_calculator\t|\n";
     cout << "|\t3. Menu item 3\t\t|\n";
     cout << "|\t4. Menu item 4\t\t|\n";
     cout << "|\t5. Menu item 5\t\t|\n";
@@ -173,11 +173,11 @@ Description:    Executes the functionality for menu item 2 and returns to the ma
 void menu_item_2()
 {
     // 无输入，无返回值。执行菜单项 2 的操作，并返回主菜单。
-    cout << "\n>> Menu 2\r\n";
-    cout << "function performance \r\n";
-    cout << "output\r\n";
+    cout << "\n>> ohms_calculator\r\n";
+    calculateOhmsLaw();
     go_back_to_main();
 }
+
 
 
 
