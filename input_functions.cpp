@@ -17,6 +17,8 @@ double getDoubleInput() {
     return input;
 }
 
+
+
 // Function to get an integer input from the user
 int getIntInput() {
     int input;
@@ -32,6 +34,8 @@ int getIntInput() {
     return input;
 }
 
+
+
 // Function to get a string input from the user
 std::string getStringInput() {
     std::string input;
@@ -39,6 +43,8 @@ std::string getStringInput() {
     std::getline(std::cin, input); // Read the entire line
     return input;
 }
+
+
 
 // Function to get a single character input from the user
 char getCharInput() {
