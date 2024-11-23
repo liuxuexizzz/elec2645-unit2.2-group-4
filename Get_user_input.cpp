@@ -4,7 +4,14 @@
 
 using namespace std;
 
-// Function to get a double input from the user
+/* 
+Function:       getDoubleInput
+Input:          None (reads from standard input)
+Output:         A valid double value entered by the user
+Description:    Prompts the user to input a double value. If the user provides invalid input,
+                the function clears the error state, discards invalid input, and recursively
+                re-prompts the user until a valid double is entered.
+*/
 double getDoubleInput() {
     double input;
     cin >> input;
@@ -21,7 +28,14 @@ double getDoubleInput() {
 
 
 
-// Function to get an integer input from the user
+/* 
+Function:       getIntInput
+Input:          None (reads from standard input)
+Output:         A valid integer value entered by the user
+Description:    Prompts the user to input an integer value. If the user provides invalid input,
+                the function clears the error state, discards invalid input, and recursively
+                re-prompts the user until a valid integer is entered.
+*/
 int getIntInput() {
     int input;
     cin >> input;
@@ -38,7 +52,14 @@ int getIntInput() {
 
 
 
-// Function to get a string input from the user
+/* 
+Function:       getStringInput
+Input:          None (reads from standard input)
+Output:         A valid string entered by the user
+Description:    Prompts the user to input a string. If the input buffer is in an error state
+                or the user enters an empty string, the function re-prompts the user until
+                a valid string is entered. 
+*/
 string getStringInput() {
     string input;
 
@@ -62,7 +83,14 @@ string getStringInput() {
 
 
 
-// Function to get a single character input from the user
+/* 
+Function:       getCharInput
+Input:          None (reads from standard input)
+Output:         A single character entered by the user
+Description:    Prompts the user to input a single character. If the input buffer contains
+                extra characters, they are discarded. The function always returns the first
+                character entered by the user.
+*/
 char getCharInput() {
     char input;
     cin >> input; // Read a single character
