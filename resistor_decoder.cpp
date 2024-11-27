@@ -3,6 +3,7 @@
 #include <iostream>
 #include <map>
 #include <cmath>
+#include <string>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ const map<int, string> toleranceValues = {
 
 const map<int, string> multiplierValues = {
     {0, "×1 Ω (black)"}, {1, "×10 Ω (brown)"}, {2, "×100 Ω (red)"},
-    {3, "×1 kΩ (orange)"}, {4, "×10 kΩ (yellow)"}, {5, "×100 kΩ (green)"},
+    {3, "×1 kΩ (orange)"},  {4, "×10 kΩ (yellow)"}, {5, "×100 kΩ (green)"},
     {6, "×1 MΩ (blue)"}, {7, "×10 MΩ (violet)"}, {8, "×100 MΩ (gray)"},
     {9, "×1 GΩ (white)"}, {10, "×0.1 Ω (gold)"}, {11, "×0.01 Ω (silver)"}
 };
@@ -36,7 +37,7 @@ Description:    Displays the color code table for resistors, showing the number 
 */
 void printColorCodeTable() {
     cout << "\n----------- Color Code Table -----------\n";
-    cout << "|\tNumber\t|\tColor\t|\n";
+    cout << "|  Resistance\t|\tColor\t|\n";
     cout << "----------------------------------------\n";
     for (const auto& entry : colorNames) {
         cout << "|\t" << entry.first << "\t|\t" << entry.second << "\t|\n";
@@ -84,35 +85,60 @@ void printToleranceTable() {
 
 /* 
 Function:       decode4BandResistor
-Input:          The numbers corresponding to the four colors
+Input:          The color names corresponding to the four bands
 Output:         Resistance decoding value
 Description:    Decodes a 4-band resistor based on user input and displays the calculated resistance 
                 along with the tolerance.
 */
 void decode4BandResistor() {
     printColorCodeTable();
-    cout << "Enter the first color (0-9): ";
-    int color1 = getIntInput();
-    cout << "Enter the second color (0-9): ";
-    int color2 = getIntInput();
+    cout << "Enter the first color: ";
+    string color1 = getStringInput();
+    cout << "Enter the second color: ";
+    string color2 = getStringInput();
     
     printMultiplierTable();
-    cout << "Enter the multiplier color (0-11): ";
-    int color3 = getIntInput();
+    cout << "Enter the multiplier color: ";
+    string color3 = getStringInput();
     
     printToleranceTable();
-    cout << "Enter the tolerance color (1-8): ";
-    int color4 = getIntInput();
+    cout << "Enter the tolerance color: ";
+    string color4 = getStringInput();
 
     try {
-        double multiplier;
-        if (color3 <= 9) multiplier = pow(10, color3);
-        else if (color3 == 10) multiplier = 0.1;
-        else if (color3 == 11) multiplier = 0.01;
-        else throw out_of_range("Invalid multiplier color input.");
+        // Find the corresponding numbers for the colors
+        int color1_num = -1, color2_num = -1, color3_num = -1, color4_num = -1;
+        for (const auto& entry : colorNames) {
+            if (entry.second == color1) color1_num = entry.first;
+            if (entry.second == color2) color2_num = entry.first;
+        }
 
-        double resistance = (color1 * 10 + color2) * multiplier;
-        cout << "The resistance value is " << resistance << " Ohms with tolerance " << toleranceValues.at(color4) << ".\n";
+        // Find the multiplier and tolerance values
+        double multiplier;
+        for (const auto& entry : multiplierValues) {
+            if (entry.second.find(color3) != string::npos) {
+                color3_num = entry.first;
+                if (color3_num <= 9) multiplier = pow(10, color3_num);
+                else if (color3_num == 10) multiplier = 0.1;
+                else if (color3_num == 11) multiplier = 0.01;
+                break;
+            }
+        }
+
+        for (const auto& entry : toleranceValues) {
+            if (entry.second.find(color4) != string::npos) {
+                color4_num = entry.first;
+                break;
+            }
+        }
+
+        if (color1_num == -1 || color2_num == -1 || color3_num == -1 || color4_num == -1) {
+            throw out_of_range("Invalid color input.");
+        }
+
+        // Calculate resistance
+        double resistance = (color1_num * 10 + color2_num) * multiplier;
+        cout << "The resistance value is " << resistance << " Ohms with tolerance " << toleranceValues.at(color4_num) << ".\n";
     } catch (const out_of_range& e) {
         cout << "Error: Invalid input.\n";
     }
@@ -122,37 +148,63 @@ void decode4BandResistor() {
 
 /* 
 Function:       decode5BandResistor
-Input:          The numbers corresponding to the five colors
+Input:          The color names corresponding to the five bands
 Output:         Resistance decoding value
 Description:    Decodes a 5-band resistor based on user input and displays the calculated resistance 
                 along with the tolerance.
 */
 void decode5BandResistor() {
     printColorCodeTable();
-    cout << "Enter the first color (0-9): ";
-    int color1 = getIntInput();
-    cout << "Enter the second color (0-9): ";
-    int color2 = getIntInput();
-    cout << "Enter the third color (0-9): ";
-    int color3 = getIntInput();
+    cout << "Enter the first color: ";
+    string color1 = getStringInput();
+    cout << "Enter the second color: ";
+    string color2 = getStringInput();
+    cout << "Enter the third color: ";
+    string color3 = getStringInput();
     
     printMultiplierTable();
-    cout << "Enter the multiplier color (0-11): ";
-    int color4 = getIntInput();
+    cout << "Enter the multiplier color: ";
+    string color4 = getStringInput();
     
     printToleranceTable();
-    cout << "Enter the tolerance color (1-8): ";
-    int color5 = getIntInput();
+    cout << "Enter the tolerance color: ";
+    string color5 = getStringInput();
 
     try {
-        double multiplier;
-        if (color4 <= 9) multiplier = pow(10, color4);
-        else if (color4 == 10) multiplier = 0.1;
-        else if (color4 == 11) multiplier = 0.01;
-        else throw out_of_range("Invalid multiplier color input.");
+        // Find the corresponding numbers for the colors
+        int color1_num = -1, color2_num = -1, color3_num = -1, color4_num = -1, color5_num = -1;
+        for (const auto& entry : colorNames) {
+            if (entry.second == color1) color1_num = entry.first;
+            if (entry.second == color2) color2_num = entry.first;
+            if (entry.second == color3) color3_num = entry.first;
+        }
 
-        double resistance = (color1 * 100 + color2 * 10 + color3) * multiplier;
-        cout << "The resistance value is " << resistance << " Ohms with tolerance " << toleranceValues.at(color5) << ".\n";
+        // Find the multiplier and tolerance values
+        double multiplier;
+        for (const auto& entry : multiplierValues) {
+            if (entry.second.find(color4) != string::npos) {
+                color4_num = entry.first;
+                if (color4_num <= 9) multiplier = pow(10, color4_num);
+                else if (color4_num == 10) multiplier = 0.1;
+                else if (color4_num == 11) multiplier = 0.01;
+                break;
+            }
+        }
+
+        for (const auto& entry : toleranceValues) {
+            if (entry.second.find(color5) != string::npos) {
+                color5_num = entry.first;
+                break;
+            }
+        }
+
+        if (color1_num == -1 || color2_num == -1 || color3_num == -1 || color4_num == -1 || color5_num == -1) {
+            throw out_of_range("Invalid color input.");
+        }
+
+        // Calculate resistance
+        double resistance = (color1_num * 100 + color2_num * 10 + color3_num) * multiplier;
+        cout << "The resistance value is " << resistance << " Ohms with tolerance " << toleranceValues.at(color5_num) << ".\n";
     } catch (const out_of_range& e) {
         cout << "Error: Invalid input.\n";
     }
