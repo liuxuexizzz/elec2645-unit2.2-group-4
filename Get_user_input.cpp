@@ -97,3 +97,31 @@ char getCharInput() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
     return input;
 }
+
+
+
+/*
+Function Call Example:
+
+    // Declare variables to hold user input
+    double doubleInput;
+    int intInput;
+    string stringInput;
+    char charInput;
+
+    // Call getDoubleInput to get a valid double from the user
+    cout << "Enter a double value: ";
+    doubleInput = getDoubleInput();  // Function call
+
+    // Call getIntInput to get a valid integer from the user
+    cout << "Enter an integer value: ";
+    intInput = getIntInput();  // Function call
+
+    // Call getStringInput to get a valid string from the user
+    stringInput = getStringInput();  // Function call
+
+    // Call getCharInput to get a single character from the user
+    cout << "Enter a single character: ";
+    charInput = getCharInput();  // Function call
+*/
+
