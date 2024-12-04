@@ -281,7 +281,7 @@ Description:    Executes the functionality for menu item 5 and returns to the ma
 void menu_item_5()
 {
     cout << "\n>> Menu 5\n";        
-    cout << "Enter a boolean expression to check its validity: ";
+
     // Print the correspondence table of logic gates and symbols
     cout << "Logic Gate and Operator Symbols:\n";
     cout << "-----------------------------------\n";
@@ -293,7 +293,7 @@ void menu_item_5()
     cout << "NOR    : R\n";
     cout << "XNOR   : X\n";
     cout << "-----------------------------------\n";
-
+    cout << "Enter a boolean expression to check its validity: ";
     string expression = getStringInput();  
 
     // Check the validity of the expression
