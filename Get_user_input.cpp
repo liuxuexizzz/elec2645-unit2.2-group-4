@@ -69,12 +69,10 @@ string getStringInput() {
         cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore invalid input
     }
 
-    cout << "Please enter a string: ";
     getline(cin, input); // Read the entire line
 
     // Validate empty input
-    if (input.empty()) {
-        cout << "Input cannot be empty. Please try again.\n";
+    while (input.empty()) {
         return getStringInput(); // Recursively call until valid input
     }
 
