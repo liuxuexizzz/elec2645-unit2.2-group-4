@@ -1,5 +1,5 @@
 #include "Boolean_Algebra.h"
-#include "BinaryCalculator.h" // Header file containing basic logic operations
+#include "BinaryCalculator.h" 
 #include <iostream>
 #include <stack>
 #include <unordered_map>
@@ -149,6 +149,75 @@ string evaluateExpression(const string& expression) {
     return operands.top(); // Return the final result
 }
 
+
+
+/* 
+Function: isValidExpression
+Input:    const string& expression  // A string representing a boolean expression to be checked
+Output:   bool                     // Returns true if the expression is valid, false otherwise
+Description: Checks the validity of a boolean expression by verifying the syntax, including:
+             - Valid characters (0, 1, logical operators, parentheses)
+             - Proper placement of operators (e.g., no consecutive operators)
+             - Balanced parentheses
+             - Correct operand and operator positioning
+             The function ensures that the expression conforms to standard boolean algebra rules.
+*/
+bool isValidExpression(const string& expression) {
+    stack<char> parentheses;  // 用来检查括号匹配
+    bool lastWasOperator = true; // 用来检查操作符位置
+    bool lastWasOperand = false; // 用来检查操作数位置
+
+    for (size_t i = 0; i < expression.size(); ++i) {
+        char c = expression[i];
+
+        // 忽略空格
+        if (c == ' ') {
+            continue;
+        }
+
+        // 检查数字（只能是0或1）
+        if (c == '0' || c == '1') {
+            lastWasOperand = true;
+            lastWasOperator = false;
+        }
+        // 检查左括号
+        else if (c == '(') {
+            parentheses.push(c);
+            lastWasOperator = true; // 左括号后面应该跟操作数或另一左括号
+        }
+        // 检查右括号
+        else if (c == ')') {
+            if (parentheses.empty()) {
+                return false; // 如果没有匹配的左括号
+            }
+            parentheses.pop();
+            lastWasOperand = false; // 右括号后面应该跟操作符或右括号
+        }
+        // 检查运算符
+        else if (c == '&' || c == '|' || c == '^' || c == 'N' || c == 'R' || c == 'X') {
+            if (lastWasOperator) {
+                return false; // 如果连续出现运算符（例如，&& 或 !!）
+            }
+            lastWasOperand = false;
+            lastWasOperator = true;
+        }
+        // 检查 NOT 运算符（'!'）
+        else if (c == '!') {
+            if (!lastWasOperator && i > 0 && expression[i-1] != '(') {
+                return false; // '!' 后面不应该跟着数字
+            }
+            lastWasOperator = true;
+            lastWasOperand = false;
+        }
+        else {
+            // 如果有其他无效字符
+            return false;
+        }
+    }
+
+    // 最后应该是一个操作数，而不是操作符
+    return !lastWasOperator && parentheses.empty();
+}
 
 
 
