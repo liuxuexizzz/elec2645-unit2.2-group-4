@@ -25,7 +25,9 @@ void print_main_menu()
     cout << "|\t3. Logic gate calculator\t\t|\n";
     cout << "|\t4. resistor_decoder\t\t\t|\n";
     cout << "|\t5. Boolean expression calculator\t|\n";
-    cout << "|\t6. Exit\t\t\t\t\t|\n";
+    cout << "|\t6. Other\t\t\t\t|\n";
+    cout << "|\t7. Other\t\t\t\t|\n";
+    cout << "|\t8. Other\t\t\t\t|\n";
     cout << "|\t\t\t\t\t\t|\n";
     cout << "------------------------------------------------\n";
 }
