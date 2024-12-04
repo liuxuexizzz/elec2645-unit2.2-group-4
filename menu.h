@@ -18,8 +18,8 @@ void menu_item_2();                         // 无输入，无返回值。执行
 void menu_item_3();                         // 无输入，无返回值。执行菜单项 3 的操作。
 void menu_item_4();                         // 无输入，无返回值。执行菜单项 4 的操作。
 void menu_item_5();                         // 无输入，无返回值。执行菜单项 5 的操作。
-
-
-
+void menu_item_6();
+void menu_item_7();
+void menu_item_8();
 
 #endif    // MENU_H
