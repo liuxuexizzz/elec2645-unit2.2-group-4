@@ -1,8 +1,10 @@
 #include "menu.h"
 #include "Get_user_input.h"
+#include "Basic_op.h"
 #include "ohms_calculator.h"
 #include "resistor_decoder.h"
 #include "BinaryCalculator.h"
+#include "Boolean_Algebra.h"
 
 using namespace std;
 
@@ -16,16 +18,16 @@ Description:    Prints the main menu to the console.
 */
 void print_main_menu() 
 {
-    cout << "\n----------- Main menu -----------\n";
-    cout << "|\t\t\t\t|\n";
-    cout << "|\t1. Menu item 1\t\t|\n";
-    cout << "|\t2. ohms_calculator\t|\n";
-    cout << "|\t3. Menu item 3\t\t|\n";
-    cout << "|\t4. resistor_decoder\t|\n";
-    cout << "|\t5. Menu item 5\t\t|\n";
-    cout << "|\t6. Exit\t\t\t|\n";
-    cout << "|\t\t\t\t|\n";
-    cout << "---------------------------------\n";
+    cout << "\n----------------- Main menu -----------------\n";
+    cout << "|\t\t\t\t\t\t|\n";
+    cout << "|\t1. Basic four calculation calculator\t|\n";
+    cout << "|\t2. ohms_calculator\t\t\t|\n";
+    cout << "|\t3. Logic gate calculator\t\t|\n";
+    cout << "|\t4. resistor_decoder\t\t\t|\n";
+    cout << "|\t5. Boolean expression calculator\t|\n";
+    cout << "|\t6. Exit\t\t\t\t\t|\n";
+    cout << "|\t\t\t\t\t\t|\n";
+    cout << "------------------------------------------------\n";
 }
 
 
@@ -149,7 +151,6 @@ Output:         None
 Description:    Prompts the user to input 'b' or 'B' to return to the main menu.
 */
 void go_back_to_main() {
-    // 无显式输入，无返回值。提示用户输入 'b' 或 'B' 返回主菜单。
     std::string input;
     do {
         std::cout << "\nEnter 'b' or 'B' to go back to main menu: ";
@@ -168,10 +169,27 @@ Description:    Executes the functionality for menu item 1 and returns to the ma
 */
 void menu_item_1()
 {
-    // 无输入，无返回值。执行菜单项 1 的操作，并返回主菜单。
     cout << "\n>> Menu 1\r\n";
-    cout << "function performance \r\n";
-    cout << "output\r\n";
+    double a, b, result;
+    char op;
+    basic_op status;
+    // Gets the first operand
+    cout << "Enter the first number: ";
+    a = getDoubleInput();
+    // Get operator
+    cout << "Enter an operator (+, -, *, /): ";
+    op = getCharInput();
+    // Gets the second operand
+    cout << "Enter the second number: ";
+    b = getDoubleInput();
+    // calculate
+    status = calculate(a, b, op, result);
+    // Output the result or error message based on the return value
+    if (status == basic_op::SUCCESS) {
+        cout << "Result: " << result << endl;
+    } else {
+        cout << getErrorMessage(status) << endl;
+    }
     go_back_to_main();
 }
 
@@ -185,7 +203,6 @@ Description:    Executes the functionality for menu item 2 and returns to the ma
 */
 void menu_item_2()
 {
-    // 无输入，无返回值。执行菜单项 2 的操作，并返回主菜单。
     cout << "\n>> ohms_calculator\r\n";
     calculateOhmsLaw();
     go_back_to_main();
@@ -203,7 +220,36 @@ Description:    Executes the functionality for menu item 3 and returns to the ma
 void menu_item_3()
 {
     cout << "\n>> Menu 3\n";
-// 我的，别写
+    string bin1, bin2;
+
+    // Get the first binary number
+    do {
+        cout << "Enter the first binary number: ";
+        bin1 = getStringInput();
+        if (!isBinary(bin1)) {
+            cout << "Invalid input! Please enter a binary number (only 0 and 1).\n";
+        }
+    } while (!isBinary(bin1));
+
+    // Gets the second binary number
+    do {
+        cout << "Enter the second binary number: ";
+        bin2 = getStringInput();
+        if (!isBinary(bin2)) {
+            cout << "Invalid input! Please enter a binary number (only 0 and 1).\n";
+        }
+    } while (!isBinary(bin2));
+
+    // Displaying the results
+    cout << "\nResults:\n";
+    cout << "AND:   " << binaryAnd(bin1, bin2) << endl;
+    cout << "OR:    " << binaryOr(bin1, bin2) << endl;
+    cout << "NOT (first number) : " << binaryNot(bin1) << endl;
+    cout << "NOT (second number): " << binaryNot(bin2) << endl;
+    cout << "NAND:  " << binaryNand(bin1, bin2) << endl;
+    cout << "NOR:   " << binaryNor(bin1, bin2) << endl;
+    cout << "XOR:   " << binaryXor(bin1, bin2) << endl;
+    cout << "XNOR:  " << binaryXnor(bin1, bin2) << endl;
     go_back_to_main();
 }
 
@@ -217,7 +263,6 @@ Description:    Executes the functionality for menu item 4 and returns to the ma
 */
 void menu_item_4()
 {
-    // 无输入，无返回值。执行菜单项 4 的操作，并返回主菜单。
     cout << "\n>> resistor_decoder\n";
     decodeResistorColor();
     go_back_to_main();
@@ -233,38 +278,24 @@ Description:    Executes the functionality for menu item 5 and returns to the ma
 */
 void menu_item_5()
 {
-    // 无输入，无返回值。执行菜单项 5 的操作，并返回主菜单。
     cout << "\n>> Menu 5\n";
-    string bin1, bin2;
+    cout << "Enter a boolean expression to check its validity: ";
+    string expression = getStringInput();  
 
-    // 获取第一个二进制数
-    do {
-        cout << "Enter the first binary number: ";
-        bin1 = getStringInput();
-        if (!isBinary(bin1)) {
-            cout << "Invalid input! Please enter a binary number (only 0 and 1).\n";
+    // Check the validity of the expression
+    if (isValidExpression(expression)) {
+        // cout << "The expression is valid.\n";
+        
+        // The result of evaluating a Boolean expression
+        try {
+            string result = evaluateExpression(expression);
+            cout << "The result of the expression is: " << result << endl;
+        } catch (const invalid_argument& e) {
+            cout << "Error in expression evaluation: " << e.what() << endl;
         }
-    } while (!isBinary(bin1));
-
-    // 获取第二个二进制数
-    do {
-        cout << "Enter the second binary number: ";
-        bin2 = getStringInput();
-        if (!isBinary(bin2)) {
-            cout << "Invalid input! Please enter a binary number (only 0 and 1).\n";
-        }
-    } while (!isBinary(bin2));
-
-    // 显示计算结果
-    cout << "\nResults:\n";
-    cout << "AND:   " << binaryAnd(bin1, bin2) << endl;
-    cout << "OR:    " << binaryOr(bin1, bin2) << endl;
-    cout << "NOT (first number) : " << binaryNot(bin1) << endl;
-    cout << "NOT (second number): " << binaryNot(bin2) << endl;
-    cout << "NAND:  " << binaryNand(bin1, bin2) << endl;
-    cout << "NOR:   " << binaryNor(bin1, bin2) << endl;
-    cout << "XOR:   " << binaryXor(bin1, bin2) << endl;
-    cout << "XNOR:  " << binaryXnor(bin1, bin2) << endl;
+    } else {
+        cout << "The expression is invalid. Please enter a valid expression.\n";
+    }
     go_back_to_main();
 }
 
@@ -279,9 +310,9 @@ Description:    Executes the functionality for menu item 6 and returns to the ma
 */
 void menu_item_6()
 {
-    // 无输入，无返回值。执行菜单项 6 的操作，并返回主菜单。
     cout << "\n>> Menu 6\n";
-// 也是我的，别写
+    cout << "function performance \r\n";
+    cout << "output\r\n";
     go_back_to_main();
 }
 
