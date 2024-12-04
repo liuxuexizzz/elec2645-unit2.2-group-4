@@ -280,8 +280,20 @@ Description:    Executes the functionality for menu item 5 and returns to the ma
 */
 void menu_item_5()
 {
-    cout << "\n>> Menu 5\n";
+    cout << "\n>> Menu 5\n";        
     cout << "Enter a boolean expression to check its validity: ";
+    // Print the correspondence table of logic gates and symbols
+    cout << "Logic Gate and Operator Symbols:\n";
+    cout << "-----------------------------------\n";
+    cout << "AND    : &\n";
+    cout << "OR     : |\n";
+    cout << "XOR    : ^\n";
+    cout << "NOT    : !\n";
+    cout << "NAND   : N\n";
+    cout << "NOR    : R\n";
+    cout << "XNOR   : X\n";
+    cout << "-----------------------------------\n";
+
     string expression = getStringInput();  
 
     // Check the validity of the expression
@@ -300,6 +312,7 @@ void menu_item_5()
     }
     go_back_to_main();
 }
+
 
 
 
