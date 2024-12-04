@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <stack>
 #include <stdexcept>
+using namespace std;
 
-
-std::string evaluateExpression(const std::string& expression);                  // Parse and evaluate the expression
-
+string evaluateExpression(const string& expression);                  // Parse and evaluate the expression
+bool isValidExpression(const string& expression);
 #endif // BOOLEAN_ALGEBRA_H
