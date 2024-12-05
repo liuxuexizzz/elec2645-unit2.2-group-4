@@ -5,6 +5,7 @@
 #include "resistor_decoder.h"
 #include "BinaryCalculator.h"
 #include "Boolean_Algebra.h"
+#include "op_amp_calculator.h"
 
 using namespace std;
 
@@ -25,8 +26,8 @@ void print_main_menu()
     cout << "|\t3. Logic gate calculator\t\t|\n";
     cout << "|\t4. resistor_decoder\t\t\t|\n";
     cout << "|\t5. Boolean expression calculator\t|\n";
-    cout << "|\t5. Operational Amplifier Calculators\t|\n";
-    cout << "|\t8. Other\t\t\t\t|\n";
+    cout << "|\t6. Operational Amplifier calculator\t|\n";
+    cout << "|\t7. Exit\t\t\t\t\t|\n";
     cout << "|\t\t\t\t\t\t|\n";
     cout << "------------------------------------------------\n";
 }
@@ -34,14 +35,13 @@ void print_main_menu()
 
 
 /* 
-Function:       get_user_input
+Function:       main_menu
 Input:          None
-Output:         int       input       // A valid menu item number (1 to 5).
-Description:    Prompts the user to select a menu item and validates the input.
+Output:         None
+Description:    Displays the main menu and gets the user's input.
 */
 void main_menu() 
 {
-    // 无输入，无返回值。显示主菜单并获取用户选择。
     print_main_menu();
     int input = get_user_input();
     select_menu_item(input);
@@ -52,41 +52,40 @@ void main_menu()
 /* 
 Function:       get_user_input
 Input:          None
-Output:         int       input       // A valid menu item number (1 to 5).
+Output:         int       input       // A valid menu item number (1 to 7).
 Description:    Prompts the user to select a menu item and validates the input.
 */
 int get_user_input() {
-    // 无显式输入，返回用户选择的菜单项编号（1 到 5）。
     int input;
     string input_string;
     bool valid_input = false;
-    int menu_items = 8;       // 菜单项数上限 5（添加功能徐需修改）
+    int menu_items = 7;       // The maximum number of menu items (7, modify if adding functionality)
 
     do {
         cout << "\nSelect item: ";
-        cin >> input_string;  // 输入：用户输入的字符串（菜单选项）
+        cin >> input_string;  // User input as a string
         valid_input = is_integer(input_string);
         if (valid_input == false) 
         {
-            cout << "Enter an integer!\r\n";  // 输出：提示输入整数
+            cout << "Enter an integer!\r\n";  // Prompt for integer input
         } 
         else 
         {
-            input = stoi(input_string);  // 将字符串转换为整数
+            input = stoi(input_string);  // Convert string to integer
             if (input >= 1 && input <= menu_items) 
             {
                 valid_input = true;
             } 
             else 
             {
-                cout << "Invalid menu item!\r\n";  // 输出：提示输入有效菜单项
+                cout << "Invalid menu item!\r\n";  // Prompt for a valid menu item
                 valid_input = false;
             }
         }
     } 
     while (valid_input == false);
 
-    return input;  // 返回：有效的整数值，表示菜单选项编号
+    return input;  // Return the valid integer corresponding to the menu item
 }
 
 
@@ -103,7 +102,7 @@ void select_menu_item(int input) {
             menu_item_1();
             break;
         case 2:
-            menu_item_2();             //Ohms Calculator
+            menu_item_2();             
             break;
         case 3:
             menu_item_3();
@@ -117,14 +116,8 @@ void select_menu_item(int input) {
         case 6:
             menu_item_6();
             break;
-        case 7:
-            menu_item_7();
-            break;
-        case 8:
-            menu_item_8();
-            break;
         default:
-            exit(1);  // 输入 9：退出程序
+            exit(1);  // Exit the program when input is 7
             break;
     }
 }
@@ -138,8 +131,6 @@ Output:         bool      is_valid    // True if the string is a valid integer
 Description:    Checks if the input string represents a valid integer.
 */
 bool is_integer(string num) {
-    // 输入：字符串 num，表示用户输入的内容。
-    // 返回：布尔值，true 表示 num 是有效的整数格式。
     return regex_match(num, regex("[+-]?[0-9]+"));
 }
 
@@ -155,9 +146,9 @@ void go_back_to_main() {
     std::string input;
     do {
         std::cout << "\nEnter 'b' or 'B' to go back to main menu: ";
-        std::cin >> input;  // 输入：用户输入的字符
+        std::cin >> input;  // User input for going back
     } while (input != "b" && input != "B");
-    main_menu();  // 调用：返回主菜单
+    main_menu();  // Go back to the main menu
 }
 
 
@@ -208,7 +199,6 @@ void menu_item_2()
     calculateOhmsLaw();
     go_back_to_main();
 }
-
 
 
 
@@ -297,7 +287,6 @@ void menu_item_5()
 
     // Check the validity of the expression
     if (isValidExpression(expression)) {
-        // cout << "The expression is valid.\n";
         
         // The result of evaluating a Boolean expression
         try {
@@ -323,40 +312,6 @@ Description:    Executes the functionality for menu item 6 and returns to the ma
 void menu_item_6()
 {
     op_amp_main_menu();
-    go_back_to_main();
-}
-
-
-
-/* 
-Function:       menu_item_7
-Input:          None
-Output:         None
-Description:    Executes the functionality for menu item 7 and returns to the main menu.
-*/
-void menu_item_7()
-{
-    // 无输入，无返回值。执行菜单项 7 的操作，并返回主菜单。
-    cout << "\n>> Menu 7\n";
-    cout << "function performance \r\n";
-    cout << "output\r\n";
-    go_back_to_main();
-}
-
-
-
-/* 
-Function:       menu_item_8
-Input:          None
-Output:         None
-Description:    Executes the functionality for menu item 8 and returns to the main menu.
-*/
-void menu_item_8()
-{
-    // 无输入，无返回值。执行菜单项  的操作，并返回主菜单。
-    cout << "\n>> Menu 8\n";
-    cout << "function performance \r\n";
-    cout << "output\r\n";
     go_back_to_main();
 }
 
