@@ -25,8 +25,7 @@ void print_main_menu()
     cout << "|\t3. Logic gate calculator\t\t|\n";
     cout << "|\t4. resistor_decoder\t\t\t|\n";
     cout << "|\t5. Boolean expression calculator\t|\n";
-    cout << "|\t6. Other\t\t\t\t|\n";
-    cout << "|\t7. Other\t\t\t\t|\n";
+    cout << "|\t5. Operational Amplifier Calculators\t|\n";
     cout << "|\t8. Other\t\t\t\t|\n";
     cout << "|\t\t\t\t\t\t|\n";
     cout << "------------------------------------------------\n";
@@ -323,9 +322,7 @@ Description:    Executes the functionality for menu item 6 and returns to the ma
 */
 void menu_item_6()
 {
-    cout << "\n>> Menu 6\n";
-    cout << "function performance \r\n";
-    cout << "output\r\n";
+    op_amp_main_menu();
     go_back_to_main();
 }
 
