@@ -4,7 +4,7 @@
 
 int main()
 {
-    // 程序入口，调用 main_menu 以启动程序，无输入，返回 0 表示正常退出。
+    // Program entrance, call main_cenu to start the program, no input, return 0 to indicate normal exit.
     main_menu();
     
     
