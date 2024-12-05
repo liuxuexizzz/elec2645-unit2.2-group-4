@@ -7,19 +7,17 @@
 
 
 
-void main_menu();                           // 无输入，无返回值。显示菜单并获取用户选择。
-int get_user_input();                       // 无显式输入，返回用户选择的菜单项编号。
-void select_menu_item(int input);           // 输入为用户选择的菜单项编号，无返回值。调用相应的菜单函数。
-void print_main_menu();                     // 无输入，无返回值。打印主菜单。
-bool is_integer(std::string num);           // 输入为字符串，返回布尔值，表示字符串是否为整数。
-void go_back_to_main();                     // 无显式输入，无返回值。提示用户按 'b' 返回主菜单。
-void menu_item_1();                         // 无输入，无返回值。执行菜单项 1 的操作。
-void menu_item_2();                         // 无输入，无返回值。执行菜单项 2 的操作。
-void menu_item_3();                         // 无输入，无返回值。执行菜单项 3 的操作。
-void menu_item_4();                         // 无输入，无返回值。执行菜单项 4 的操作。
-void menu_item_5();                         // 无输入，无返回值。执行菜单项 5 的操作。
-void menu_item_6();
-void menu_item_7();
-void menu_item_8();
+void main_menu();                           // No input, no return value. Displays the menu and gets the user's selection.
+int get_user_input();                       // No explicit input, returns the menu item number selected by the user.
+void select_menu_item(int input);           // Input is the menu item number selected by the user, no return value. Calls the corresponding menu function.
+void print_main_menu();                     // No input, no return value. Prints the main menu.
+bool is_integer(std::string num);           // Input is a string, returns a boolean indicating whether the string is an integer.
+void go_back_to_main();                     // No explicit input, no return value. Prompts the user to press 'b' to return to the main menu.
+void menu_item_1();                         // No input, no return value. Performs the operation for menu item 1.
+void menu_item_2();                         // No input, no return value. Performs the operation for menu item 2.
+void menu_item_3();                         // No input, no return value. Performs the operation for menu item 3.
+void menu_item_4();                         // No input, no return value. Performs the operation for menu item 4.
+void menu_item_5();                         // No input, no return value. Performs the operation for menu item 5.
+void menu_item_6();                         // No input, no return value. Performs the operation for menu item 6.
 
 #endif    // MENU_H
