@@ -4,6 +4,8 @@
 
 using namespace std;
 
+
+
 /* 
 Function:       op_amp_main_menu
 Input:          None
@@ -63,6 +65,8 @@ void op_amp_main_menu() {
     } while (op_amp_input != 8);
 }
 
+
+
 /* 
 Function:       calculate_inverting_gain
 Input:          None
@@ -80,6 +84,8 @@ void calculate_inverting_gain() {
         cout << "Invalid resistor values. Both resistors must be greater than zero." << endl;
     }
 }
+
+
 
 /* 
 Function:       calculate_non_inverting_gain
@@ -99,6 +105,8 @@ void calculate_non_inverting_gain() {
     }
 }
 
+
+
 /* 
 Function:       calculate_differential_gain
 Input:          None
@@ -116,6 +124,7 @@ void calculate_differential_gain() {
         cout << "Invalid resistor values. Both resistors must be greater than zero." << endl;
     }
 }
+
 
 
 /* 
@@ -140,6 +149,8 @@ double get_resistor_value(const std::string& resistor_name) {
         }
     } while (true);
 }
+
+
 
 /* 
 Function:       get_capacitor_value
@@ -184,6 +195,8 @@ void calculate_integrator_gain() {
     }
 }
 
+
+
 /* 
 Function:       calculate_differentiator_gain
 Input:          None
@@ -202,6 +215,8 @@ void calculate_differentiator_gain() {
     }
 }
 
+
+
 /* 
 Function:       calculate_low_pass_filter
 Input:          None
@@ -219,6 +234,8 @@ void calculate_low_pass_filter() {
         cout << "Invalid component values. Both resistor and capacitor must be greater than zero." << endl;
     }
 }
+
+
 
 /* 
 Function:       calculate_high_pass_filter
