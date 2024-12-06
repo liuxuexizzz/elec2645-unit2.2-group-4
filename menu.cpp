@@ -22,10 +22,10 @@ void print_main_menu()
     cout << "\n----------------- Main menu -----------------\n";
     cout << "|\t\t\t\t\t\t|\n";
     cout << "|\t1. Basic four calculation calculator\t|\n";
-    cout << "|\t2. ohms_calculator\t\t\t|\n";
-    cout << "|\t3. Logic gate calculator\t\t|\n";
-    cout << "|\t4. resistor_decoder\t\t\t|\n";
-    cout << "|\t5. Boolean expression calculator\t|\n";
+    cout << "|\t2. Logic gate calculator\t\t|\n";
+    cout << "|\t3. Boolean expression calculator\t|\n";
+    cout << "|\t4. ohms_calculator\t\t\t|\n";
+    cout << "|\t5. resistor_decoder\t\t\t|\n";
     cout << "|\t6. Operational Amplifier calculator\t|\n";
     cout << "|\t7. Exit\t\t\t\t\t|\n";
     cout << "|\t\t\t\t\t\t|\n";
@@ -195,22 +195,7 @@ Description:    Executes the functionality for menu item 2 and returns to the ma
 */
 void menu_item_2()
 {
-    cout << "\n>> ohms_calculator\r\n";
-    calculateOhmsLaw();
-    go_back_to_main();
-}
-
-
-
-/* 
-Function:       menu_item_3
-Input:          None
-Output:         None
-Description:    Executes the functionality for menu item 3 and returns to the main menu.
-*/
-void menu_item_3()
-{
-    cout << "\n>> Menu 3\n";
+    cout << "\n>> Menu 2\n";
     string bin1, bin2;
 
     // Get the first binary number
@@ -247,29 +232,14 @@ void menu_item_3()
 
 
 /* 
-Function:       menu_item_4
+Function:       menu_item_3
 Input:          None
 Output:         None
-Description:    Executes the functionality for menu item 4 and returns to the main menu.
+Description:    Executes the functionality for menu item 3 and returns to the main menu.
 */
-void menu_item_4()
+void menu_item_3()
 {
-    cout << "\n>> resistor_decoder\n";
-    decodeResistorColor();
-    go_back_to_main();
-}
-
-
-
-/* 
-Function:       menu_item_5
-Input:          None
-Output:         None
-Description:    Executes the functionality for menu item 5 and returns to the main menu.
-*/
-void menu_item_5()
-{
-    cout << "\n>> Menu 5\n";        
+    cout << "\n>> Menu 3\n";        
 
     // Print the correspondence table of logic gates and symbols
     cout << "Logic Gate and Operator Symbols:\n";
@@ -299,6 +269,36 @@ void menu_item_5()
         cout << "The expression is invalid. Please enter a valid expression.\n";
     }
     go_back_to_main();
+}
+
+
+
+/* 
+Function:       menu_item_4
+Input:          None
+Output:         None
+Description:    Executes the functionality for menu item 4 and returns to the main menu.
+*/
+void menu_item_4()
+{  
+    cout << "\n>> ohms_calculator\r\n";
+    calculateOhmsLaw();
+    go_back_to_main();
+}
+
+
+
+/* 
+Function:       menu_item_5
+Input:          None
+Output:         None
+Description:    Executes the functionality for menu item 5 and returns to the main menu.
+*/
+void menu_item_5()
+{
+    cout << "\n>> resistor_decoder\n";
+    decodeResistorColor();
+    go_back_to_main();    
 }
 
 
