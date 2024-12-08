@@ -8,14 +8,14 @@ using namespace std;
 
 // 定义枚举类型表示错误状态
 enum class basic_op {
-    SUCCESS,                        // 无错误
-    DIVIDE_BY_ZERO,                 // 除零错误
-    INVALID_OPERATOR                // 无效运算符错误
+    SUCCESS,                        // There are no errors.
+    DIVIDE_BY_ZERO,                 // Zero Error
+    INVALID_OPERATOR                // Invalid operator error
 };
 
 
 
-basic_op calculate(double a, double b, char op, double& result);        // 计算函数声明
-string getErrorMessage(basic_op error);                                 // 错误信息输出函数声明
+basic_op calculate(double a, double b, char op, double& result);        // Declaring Computational Functions
+string getErrorMessage(basic_op error);                                 // Declaration of the error message output function
 
 #endif // BASIC_OP_H
