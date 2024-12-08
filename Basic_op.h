@@ -6,7 +6,7 @@ using namespace std;
 
 
 
-// 定义枚举类型表示错误状态
+// Defining enumerated types represents error states.
 enum class basic_op {
     SUCCESS,                        // There are no errors.
     DIVIDE_BY_ZERO,                 // Zero Error
