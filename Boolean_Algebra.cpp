@@ -222,7 +222,7 @@ bool isValidExpression(const string& expression) {
 
 
 /*
-调用示例：
+An example of a function call:
     std::string expression = "0011&0111&(0001|0000)";
     cout << expression << endl;
     try {
