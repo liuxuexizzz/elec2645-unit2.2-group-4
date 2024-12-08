@@ -10,26 +10,26 @@ using namespace std;
 
 /* 
 Function: isBinary
-Input:    const string& str     // 输入字符串
-Output:   bool                  // 是否为二进制数的布尔值
-Description: 检测输入字符串是否仅由二进制字符 '0' 和 '1' 组成。
+Input:    const string& str     // Enter a string.
+Output:   bool                  // Boolean value indicating whether it is a binary number
+Description: Check whether the input string consists solely of binary characters '0' and '1'.
 */
 bool isBinary(const string& str) {
     for (char c : str) {
         if (c != '0' && c != '1') {
-            return false; // 发现非二进制字符
+            return false; // Find non-binary characters.
         }
     }
-    return true; // 全部字符为二进制
+    return true; // All characters are binary
 }
 
 
 
 /* 
 Function: binaryAnd
-Input:    const string& bin1, bin2 // 两个二进制字符串
-Output:   string                   // 按位与的结果字符串
-Description: 计算两个二进制字符串的按位与操作，支持对齐长度的字符串输入。
+Input:    const string& bin1, bin2 // Two binary strings.
+Output:   string                   // The result string of bitwise AND operation.
+Description: Perform bitwise AND operation on two binary strings, supporting input strings of variable length.
 */
 string binaryAnd(const string& bin1, const string& bin2) {
     size_t len = max(bin1.size(), bin2.size());
@@ -47,9 +47,9 @@ string binaryAnd(const string& bin1, const string& bin2) {
 
 /* 
 Function: binaryOr
-Input:    const string& bin1, bin2 // 两个二进制字符串
-Output:   string                   // 按位或的结果字符串
-Description: 计算两个二进制字符串的按位或操作，支持对齐长度的字符串输入。
+Input:    const string& bin1, bin2 // Two binary strings.
+Output:   string                   // The result string of bitwise OR operation.
+Description: Perform bitwise OR operation on two binary strings, supporting aligned length input.
 */
 string binaryOr(const string& bin1, const string& bin2) {
     size_t len = max(bin1.size(), bin2.size());
@@ -67,9 +67,9 @@ string binaryOr(const string& bin1, const string& bin2) {
 
 /* 
 Function: binaryNot
-Input:    const string& bin      // 二进制字符串
-Output:   string                 // 按位非的结果字符串
-Description: 计算二进制字符串的按位非操作。
+Input:    const string& bin      // Binary string
+Output:   string                 // The result string of bitwise NOT operation
+Description: Perform the bitwise NOT operation on a binary string.
 */
 string binaryNot(const string& bin) {
     string result;
@@ -83,9 +83,9 @@ string binaryNot(const string& bin) {
 
 /* 
 Function: binaryNand
-Input:    const string& bin1, bin2 // 两个二进制字符串
-Output:   string                   // 按位NAND的结果字符串
-Description: 计算两个二进制字符串的按位与后，再按位非操作 (NAND = NOT(AND))。
+Input:    const string& bin1, bin2 // Two binary strings.
+Output:   string                   // The result string of bitwise NAND
+Description: After computing the bitwise AND of two binary strings, perform a bitwise NOT operation (NAND = NOT(AND)).
 */
 string binaryNand(const string& bin1, const string& bin2) {
     string andResult = binaryAnd(bin1, bin2);
@@ -96,9 +96,9 @@ string binaryNand(const string& bin1, const string& bin2) {
 
 /* 
 Function: binaryNor
-Input:    const string& bin1, bin2 // 两个二进制字符串
-Output:   string                   // 按位NOR的结果字符串
-Description: 计算两个二进制字符串的按位或后，再按位非操作 (NOR = NOT(OR))。
+Input:    const string& bin1, bin2 // Two binary strings.
+Output:   string                   // The result string of bitwise NOR operation.
+Description: After computing the bitwise OR of two binary strings, perform a bitwise NOT operation (NOR = NOT(OR)).
 */
 string binaryNor(const string& bin1, const string& bin2) {
     string orResult = binaryOr(bin1, bin2);
@@ -109,9 +109,9 @@ string binaryNor(const string& bin1, const string& bin2) {
 
 /* 
 Function: binaryXor
-Input:    const string& bin1, bin2 // 两个二进制字符串
-Output:   string                   // 按位异或的结果字符串
-Description: 计算两个二进制字符串的按位异或操作，支持对齐长度的字符串输入。
+Input:    const string& bin1, bin2 // Two binary strings.
+Output:   string                   // The result of bitwise XOR operation on a string
+Description: Perform a bitwise XOR operation on two binary string inputs, supporting aligned length input.
 */
 string binaryXor(const string& bin1, const string& bin2) {
     size_t len = max(bin1.size(), bin2.size());
@@ -129,9 +129,9 @@ string binaryXor(const string& bin1, const string& bin2) {
 
 /* 
 Function: binaryXnor
-Input:    const string& bin1, bin2 // 两个二进制字符串
-Output:   string                   // 按位XNOR的结果字符串
-Description: 计算两个二进制字符串的按位异或后，再按位非操作 (XNOR = NOT(XOR))。
+Input:    const string& bin1, bin2 // Two binary strings
+Output:   string                   // The result string of bitwise XNOR operation.
+Description: After computing the bitwise XOR of two binary strings, perform a bitwise NOT operation (XNOR = NOT(XOR)).
 */
 string binaryXnor(const string& bin1, const string& bin2) {
     string xorResult = binaryXor(bin1, bin2);
@@ -142,11 +142,11 @@ string binaryXnor(const string& bin1, const string& bin2) {
 
 
 /*
-函数调用示例：
+An example of a function call:
     using namespace std;
     string bin1, bin2;
 
-    // 获取第一个二进制数
+    // Get the first binary number.
     do {
         cout << "Enter the first binary number: ";
         bin1 = getStringInput();
@@ -155,7 +155,7 @@ string binaryXnor(const string& bin1, const string& bin2) {
         }
     } while (!isBinary(bin1));
 
-    // 获取第二个二进制数
+    // Get the second binary number.
     do {
         cout << "Enter the second binary number: ";
         bin2 = getStringInput();
@@ -164,7 +164,7 @@ string binaryXnor(const string& bin1, const string& bin2) {
         }
     } while (!isBinary(bin2));
 
-    // 显示计算结果
+    // Display the calculation results.
     cout << "\nResults:\n";
     cout << "AND:   " << binaryAnd(bin1, bin2) << endl;
     cout << "OR:    " << binaryOr(bin1, bin2) << endl;
