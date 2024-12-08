@@ -30,12 +30,12 @@ basic_op calculate(double a, double b, char op, double& result) {
             return basic_op::SUCCESS;
         case '/':
             if (b == 0) {
-                return basic_op::DIVIDE_BY_ZERO; // 检查除零错误
+                return basic_op::DIVIDE_BY_ZERO; // Check for zero errors.
             }
             result = a / b;
             return basic_op::SUCCESS;
         default:
-            return basic_op::INVALID_OPERATOR; // 无效运算符
+            return basic_op::INVALID_OPERATOR; // Invalid operator
     }
 }
 
@@ -64,7 +64,7 @@ string getErrorMessage(basic_op error) {
 
 
 /*
-函数调用示例:
+An example of a function call:
     double result;
     basic_op status = calculate(5, 6, '+', result);
 
