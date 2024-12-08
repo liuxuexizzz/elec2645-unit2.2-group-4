@@ -1,8 +1,12 @@
 ELEC group 4 project scientific calculator
 1. Function menu:
-a. 
-b. 
-c. 
+a. Basic four calculation calculator
+b. Logic gate calculator
+c. Boolean expression calculator
+d. ohms_calculator
+e. resistor_decoder
+f. Operational Amplifier calculator
+g. Exit
 
 
 
